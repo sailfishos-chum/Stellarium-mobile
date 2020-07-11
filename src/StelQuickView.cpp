@@ -167,7 +167,7 @@ void StelQuickView::handleResize()
 
 float StelQuickView::getScreenDensity() const
 {
-#if defined(Q_OS_IOS) || defined(Q_OS_ANDROID) || defined(Q_OS_UBUNTU_TOUCH)
+#if defined(Q_OS_IOS) || defined(Q_OS_ANDROID) || defined(Q_OS_UBUNTU_TOUCH) || defined(Q_OS_SAILFISHOS)
 	return screen()->physicalDotsPerInch()/160.f;
 #else
     return screen()->physicalDotsPerInch()/96.f;

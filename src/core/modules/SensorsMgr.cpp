@@ -39,6 +39,7 @@
 #include <QGuiApplication>
 #include <QOrientationSensor>
 #include <QOrientationReading>
+#include <QFile>
 
 SensorsMgr::SensorsMgr() :
     enabled(false),
