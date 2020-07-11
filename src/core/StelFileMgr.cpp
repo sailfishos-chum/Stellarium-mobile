@@ -58,7 +58,7 @@ void StelFileMgr::init()
 	}
 #elif defined(Q_OS_MAC)
 	userDir = QDir::homePath() + "/Library/Application Support/Stellarium";
-#elif defined(Q_OS_UBUNTU_TOUCH)
+#elif defined(Q_OS_UBUNTU_TOUCH)  || defined(Q_OS_SAILFISHOS)
     userDir = QStandardPaths::writableLocation(QStandardPaths::AppConfigLocation);
 #else
     userDir = QDir::homePath() + "/.stellarium";
@@ -139,6 +139,9 @@ void StelFileMgr::init()
 #elif defined Q_OS_UBUNTU_TOUCH
         QFileInfo installLocation(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + "/assets");
         QFileInfo checkFile(installLocation.filePath() + QString("/") + QString(CHECK_FILE));
+//#elif defined Q_OS_SAILFISHOS
+        //QFileInfo installLocation(QStandardPaths::standardLocations(QStandardPaths::DataLocation).last() + "/assets");
+        //QFileInfo checkFile(installLocation.filePath() + QString("/") + QString(CHECK_FILE));
 #else
 		// Linux, BSD, Solaris etc.
 		// We use the value from the config.h filesystem

@@ -16,6 +16,7 @@ android {
 }
 CONFIG += qt thread
 #CONFIG += release
+CONFIG += sailfishapp
 
 LIBS += -lz
 
@@ -31,6 +32,34 @@ CONFIG(debug, debug|release) {
 RESOURCES += mainRes.qrc
 
 QMAKE_CXXFLAGS_RELEASE += -Ofast
+
+sailfishapp {
+    message(installing for sailfish)
+    DEFINES += Q_OS_SAILFISHOS
+
+    data_dir.path = /usr/share/stellarium/data
+    data_dir.files = $$PWD/mobileData/data/*
+
+    landscapes_dir.path = /usr/share/stellarium/landscapes
+    landscapes_dir.files = $$PWD/mobileData/landscapes/*
+
+    nebulae_dir.path = /usr/share/stellarium/nebulae
+    nebulae_dir.files = $$PWD/mobileData/nebulae/*
+
+    skycultures_dir.path = /usr/share/stellarium/skycultures
+    skycultures_dir.files = $$PWD/mobileData/skycultures/*
+
+    stars_dir.path = /usr/share/stellarium/stars
+    stars_dir.files = $$PWD/mobileData/stars/*
+
+    textures_dir.path = /usr/share/stellarium/textures
+    textures_dir.files = $$PWD/mobileData/textures/*
+
+    translations_dir.path = /usr/share/stellarium/translations
+    translations_dir.files = $$PWD/mobileData/translations/*
+
+    INSTALLS +=  data_dir textures_dir landscapes_dir nebulae_dir skycultures_dir stars_dir translations_dir
+}
 
 UBUNTU_TOUCH {
    DEFINES += Q_OS_UBUNTU_TOUCH
@@ -154,7 +183,7 @@ DEFINES += DISABLE_SCRIPTING
 DEFINES += ENABLE_NLS
 DEFINES += PACKAGE_VERSION_NOSTR=$${VERSION}
 DEFINES += MOBILE_GUI_VERSION_NOSTR=$${MOBILE_VERSION}
-DEFINES += INSTALL_DATADIR_NOSTR=
+DEFINES += INSTALL_DATADIR_NOSTR=/usr/share/stellarium
 
 #QMAKE_CFLAGS += -include src/config.h
 #QMAKE_CXXFLAGS += -include src/config.h
@@ -554,4 +583,11 @@ DISTFILES += \
     android/res/values/libs.xml \
     android/build.gradle \
     android/gradle/wrapper/gradle-wrapper.properties \
-    android/gradlew.bat
+    android/gradlew.bat \
+    rpm/stellarium.spec \
+    rpm/stellarium.yaml \
+#    stellarium.png \
+    stellarium.desktop
+
+SAILFISHAPP_ICONS = 86x86 #108x108 128x128 172x172
+
