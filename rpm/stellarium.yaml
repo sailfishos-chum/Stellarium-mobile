@@ -23,6 +23,8 @@ PkgConfigBR:
   - Qt5Core
   - Qt5Qml
   - Qt5Quick
+  - Qt5Positioning
+  - Qt5Sensors
 
 
 # Build dependencies without a pkgconfig setup can be listed here
@@ -35,6 +37,7 @@ Requires:
   - qt5-qtdeclarative-import-localstorageplugin
   - qt5-qtdeclarative-import-particles2
   - qt5-qtpositioning
+  - qt5-qtsensors
 
 # All installed files
 Files:
