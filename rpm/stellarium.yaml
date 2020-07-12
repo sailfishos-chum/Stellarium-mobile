@@ -34,6 +34,7 @@ Requires:
   - sailfishsilica-qt5 >= 0.10.9 
   - qt5-qtdeclarative-import-localstorageplugin
   - qt5-qtdeclarative-import-particles2
+  - qt5-qtpositioning
 
 # All installed files
 Files:
