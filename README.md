@@ -5,6 +5,7 @@
 [Stellarium](https://stellarium.org) on Mobile.
 
 This is an adaptation of Cheng Xinlun's Stellarium app for Android/Ios : https://github.com/chengxinlun/Stellarium-android ,
+
 Re-used compressed assets from initial work: https://noctua-software.com/stellarium-mobile 1.29 version
 
 ## Build for Ubuntu Touch
@@ -14,7 +15,8 @@ Re-used compressed assets from initial work: https://noctua-software.com/stellar
 
 ## Translate
 https://hosted.weblate.org/projects/stellarium-mobile/app/ for stellarium core translations
-Sky cultures translation is not available there, see `po/stellarium-skycultures` and `mobileData/skycultures`
+
+Sky cultures translation is not available there due to the one "pot" file limitation, see `po/stellarium-skycultures` and `mobileData/skycultures`
 
 
 ### Update translation
