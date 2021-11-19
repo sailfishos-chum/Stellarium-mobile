@@ -37,9 +37,11 @@ private:
 	bool enabled;
 	class QAccelerometer* accelerometerSensor;
 	class QMagnetometer* magnetometerSensor;
+	class QOrientationSensor* orientationSensor;
 	qreal sensorX, sensorY, sensorZ;
 	qreal magnetX, magnetY, magnetZ;
 	qreal sensorAzimuth;
+	int mOrientation;
     // Begin modification: add magnetic declination correction
     double magd;
     // End modification

@@ -37,6 +37,8 @@
 #include <QMagnetometer>
 #include <QScreen>
 #include <QGuiApplication>
+#include <QOrientationSensor>
+#include <QOrientationReading>
 
 SensorsMgr::SensorsMgr() :
     enabled(false),
@@ -44,6 +46,7 @@ SensorsMgr::SensorsMgr() :
     magnetometerSensor(NULL),
     sensorX(0), sensorY(0), sensorZ(0),
     magnetX(0), magnetY(0), magnetZ(0),
+    mOrientation(0),
     firstMeasure(true)
 {
 	setObjectName("SensorsMgr");
@@ -61,6 +64,37 @@ void SensorsMgr::init()
 	// Crash with Qt 5.3.
 	// accelerometerSensor->setAccelerationMode(QAccelerometer::Gravity);
 	magnetometerSensor = new QMagnetometer(this);
+	orientationSensor = new QOrientationSensor(this);
+	connect(orientationSensor, &QOrientationSensor::readingChanged,
+            [=]() {
+                int newOrientation = mOrientation;
+                switch (orientationSensor->reading()->orientation()) {
+                        case QOrientationReading::Orientation::TopUp:
+                            newOrientation = 0;
+                            break;
+
+                        case QOrientationReading::Orientation::LeftUp:
+                            newOrientation = 90;
+                            break;
+
+                        case QOrientationReading::Orientation::TopDown:
+                            newOrientation = 180;
+                            break;
+
+                        case QOrientationReading::Orientation::RightUp:
+                            newOrientation = 270;
+                            break;
+
+                        default:
+                            break;
+                    }
+                if (newOrientation != mOrientation) {
+                    mOrientation = newOrientation;
+                }
+                qDebug() << "orientationSensor:" << mOrientation;
+
+        }
+        );
 }
 
 void SensorsMgr::setEnabled(bool value)
@@ -70,6 +104,8 @@ void SensorsMgr::setEnabled(bool value)
 	enabled = value;
 	accelerometerSensor->setActive(enabled);
     magnetometerSensor->setActive(enabled);
+    orientationSensor->setActive(enabled);
+
 	firstMeasure = true;
 	if (!enabled)
 	{
@@ -157,38 +193,30 @@ void SensorsMgr::applyOrientation(float* x, float* y, float* z)
 	}
 }
 #elif defined(Q_OS_UBUNTU_TOUCH)
-    void SensorsMgr::applyOrientation(float* x, float* y, float* z)
-    {
-        Q_UNUSED(z);
-        const float xx = *x, yy = *y;
-        Qt::ScreenOrientation orientation = QGuiApplication::primaryScreen()->orientation();
-        switch (orientation)
-        {
-        case Qt::PortraitOrientation:  // ROTATION_0
-            if (yy < 0) {
-                *x = -xx;
-                *y = -yy;
-            }
-            break;
-        case Qt::LandscapeOrientation:  // ROTATION_90
-            if (xx < 0) {
-                *x = yy;
-                *y = -xx;
-            } else{
-                *x = -yy;
-                *y = xx;
-            }
-            break;
-        case Qt::InvertedPortraitOrientation:  // seems not working
-            *x = -xx;
-            *y = -yy;
-            break;
-        case Qt::InvertedLandscapeOrientation:  // seems not working
-            *x = yy;
-            *y = -xx;
-            break;
-        }
-    }
+void SensorsMgr::applyOrientation(float* x, float* y, float* z)
+{
+
+   Q_UNUSED(z);
+   	const float xx = *x, yy = *y;
+   	//qDebug() << "x,y,pos" << xx << yy << mOrientation;
+   	switch (mOrientation)
+   	{
+   	case 0:
+   		break;
+   	case 90:
+   		*x = yy;
+        *y = -xx;
+        break;
+   	case 180:
+   		*x = -xx;
+   		*y = -yy;
+   		break;
+   	case 270:
+   	    *x = -yy;
+        *y = xx;
+        break;
+   	}
+}
 #else
 void SensorsMgr::applyOrientation(float* x, float *y, float* z) 
 {

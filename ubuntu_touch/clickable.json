@@ -1,7 +1,6 @@
 {
-  "template": "qmake",
+  "builder": "qmake",
   "kill": "stellarium",
   "build_args": "CONFIG+=UBUNTU_TOUCH",
   "make_jobs": 3
 }
-
