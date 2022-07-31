@@ -1,0 +1,13 @@
+from Config import *
+# in upstream version 1.29.6 of Stellarium-mobile,
+# the following lores (skycultures) don't have names listed (yet) for some categories.
+# thus these specific files will be empty (for now)
+addFilter("stellarium.* zero-length .*/usr/share/stellarium/skycultures/aztec/star_names.fab")
+addFilter("stellarium.* zero-length .*/usr/share/stellarium/skycultures/japanese_moon_stations/star_names.fab")
+addFilter("stellarium.* zero-length .*/usr/share/stellarium/skycultures/korean/constellationsart.fab")
+addFilter("stellarium.* zero-length .*/usr/share/stellarium/skycultures/navajo/star_names.fab")
+addFilter("stellarium.* zero-length .*/usr/share/stellarium/skycultures/romanian/constellations_boundaries.dat")
+addFilter("stellarium.* zero-length .*/usr/share/stellarium/skycultures/sami/star_names.fab")
+addFilter("stellarium.* zero-length .*/usr/share/stellarium/skycultures/tongan/constellationsart.fab")
+addFilter("stellarium.* zero-length .*/usr/share/stellarium/skycultures/tupi/constellationsart.fab")
+

@@ -6,3 +6,8 @@ X-Nemo-Application-Type=no-invoker
 Name=Stellarium
 Icon=stellarium
 Exec=stellarium
+
+[X-Sailjail]
+Permissions=Location
+OrganizationName=ch.sympato
+Application=Stellarium

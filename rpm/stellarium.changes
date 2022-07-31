@@ -1,0 +1,6 @@
+* Mon Aug 1 2022 DrYak <doktor.yak@gmail.com> 0.4
+
+ - Build for Aarch64
+ - Rebased against Stellarium Ubuntutouch 0.4
+ - Stellarium Android 0.12.3
+ - Stellarium Mobile 1.29.6
