@@ -13,7 +13,7 @@ Version:    1.29.6
 Release:    1
 Group:      Qt/Qt
 License:    GPLv2
-URL:        https://github.com/fuchsmich/Stellarium-mobile
+URL:        https://github.com/sailfishos-chum/Stellarium-sailfishos
 Source0:    %{name}-%{version}.tar.bz2
 Source1:    stellarium-rpmlintrc
 Source100:  stellarium.yaml
@@ -32,6 +32,31 @@ BuildRequires:  desktop-file-utils
 
 %description
 Stellarium for Sailfish adapted from Stellarium Mobile source.
+
+Stellarium renders 3D photo-realistic skies in real time with OpenGL. It displays stars, constellations, planets and nebulae, and has many other features including multiple panoramic landscapes, fog and light pollution simulation.
+
+Stellarium comes with a star catalogue of about 600 thousand stars and it is possible to download extra catalogues with up to 210 million stars.
+
+Stellarium has multiple sky cultures - see the constellations from the traditions of Polynesian, Inuit, Navajo, Korean, Lakota, Egyptian and Chinese astronomers, as well as the traditional Western constellations.
+
+# This description section includes metadata for SailfishOS:Chum, see
+# https://github.com/sailfishos-chum/main/blob/main/Metadata.md
+%if "%{?vendor}" == "chum"
+PackageName: Stellarium
+Type: desktop-application
+DeveloperName: fuchsmich, lduboeuf, chengxinlun
+PackagerName: DrYak
+Categories:
+  - Science
+Custom:
+  Repo: https://github.com/sailfishos-chum/Stellarium-sailfishos
+Icon: https://github.com/sailfishos-chum/Stellarium-sailfishos/raw/master/icons/256x256/stellarium.png
+Screenshots:
+  - https://sailfishos-chum.github.io/Stellarium-sailfishos/screenshots/Screenshot_20220801_001.png
+Url:
+  Homepage: https://github.com/sailfishos-chum/Stellarium-sailfishos
+  Bugtracker: https://github.com/sailfishos-chum/Stellarium-sailfishos/issues
+%endif
 
 
 %prep
