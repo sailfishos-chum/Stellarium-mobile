@@ -8,6 +8,6 @@ Icon=stellarium
 Exec=stellarium
 
 [X-Sailjail]
-Permissions=Location
+Permissions=Location;Sensors;Internet
 OrganizationName=ch.sympato
 Application=Stellarium
