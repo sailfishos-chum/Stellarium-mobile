@@ -18,7 +18,7 @@
  */
 
 import QtQuick 2.2
-import QtQuick.Controls 2.2
+//import QtQuick.Controls 2.2
 
 StelDialog {
 	id: root
@@ -135,7 +135,9 @@ StelDialog {
         cName = cName.toLowerCase()
         for (var i = 0; i < cList.length; i++)
         {
-            if (cList[i].toLowerCase().includes(cName)) {
+            console.debug(cList[i])
+            //if (cList[i].toLowerCase().includes(cName)) {
+            if (cList[i].toLowerCase().indexOf(cName) >= 0) {
                 temp.push(cList[i])
             }
         }
