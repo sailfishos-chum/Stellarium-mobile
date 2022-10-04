@@ -8,6 +8,6 @@ Icon=stellarium
 Exec=stellarium
 
 [X-Sailjail]
-Permissions=Location;Sensors;Interneti;UserDirs
+Permissions=Location;Sensors;Internet;UserDirs
 OrganizationName=me.lduboeuf.stellarium
 ApplicationName=stellarium
