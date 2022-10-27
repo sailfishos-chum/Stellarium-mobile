@@ -17,8 +17,9 @@
  * Foundation, Inc., 51 Franklin Street, Suite 500, Boston, MA  02110-1335, USA.
  */
 
+
 import QtQuick 2.2
-import QtQuick.Controls 2.2
+//import QtQuick.Controls 2.2
 
 StelDialog {
 	id: root
@@ -37,10 +38,10 @@ StelDialog {
 			onClicked: stellarium.currentSkyCultureI18 = modelData
 		}
 		model: stellarium.getSkyCultureListI18()
-		clip: true
-        ScrollBar.vertical: ScrollBar {
+        clip: true
+        /*ScrollBar.vertical: ScrollBar {
             active: true
-        }
+        }*/
 	}
 
 	Flickable {

@@ -23,4 +23,6 @@
 #
 # Use *FSL (frequent selected locations) for any location that is frequently used
 #
-Zijin, THU	Beijing	*FSL	O	12.198	40.01569N	116.33608E	33	7	Asia/Shanghai
+Paris	Ile-de-France	fr	C	2138.551	48.85341N	2.3488E	42	9	Europe/Paris
+Paris	Texas	us	N	25.171	33.66094N	95.55551W	190	5	America/Chicago
+Paris Observatory		fr	O	0	48.836439N	2.336506E	0	5	

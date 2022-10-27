@@ -33,7 +33,7 @@ StelLocationMgr::StelLocationMgr()
 	// The line below allows to re-generate the location file, you still need to gunzip it manually afterward.
     // generateBinaryLocationFile("data/base_locations.txt", false, "data/base_locations.bin");
 
-#if defined(Q_OS_ANDROID) || defined(Q_OS_UBUNTU_TOUCH)
+#if defined(Q_OS_ANDROID) || defined(Q_OS_UBUNTU_TOUCH) || defined(Q_OS_SAILFISHOS)
 	// The .gz is removed in the assets to avoid double compression.
     // Modified: loadCitiesBin won't work properly, resort to loadCities (Cheng Xinlun, Feb 20, 2017)
     locations = loadCities("data/base_locations.txt", true);

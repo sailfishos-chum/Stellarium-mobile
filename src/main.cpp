@@ -58,6 +58,7 @@
 #endif
 #endif //Q_OS_WIN
 
+
 //! @class GettextStelTranslator
 //! Provides custom i18n support.
 class CustomQTranslator : public QTranslator
@@ -140,6 +141,7 @@ int main(int argc, char **argv)
     //app.setApplicationName("stellarium");
     //app.setApplicationVersion(StelUtils::getApplicationVersion());
     //app.setOrganizationDomain("stellarium.org");
+    app.setApplicationName("stellarium");
     app.setOrganizationName(QStringLiteral("me.lduboeuf.stellarium"));
 
 	// QApplication sets current locale, but
